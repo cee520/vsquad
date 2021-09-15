@@ -3,7 +3,7 @@
     <SiteAnalysis class="!my-4 enter-y" :loading="loading" />
   </div>
   <div class="p-4">
-    <VisitRoadmap class="!my-4 enter-y" :loading="loading" />
+    <VisitRoadmap class="!my-4 enter-y"  />
   </div>
 </template>
 <script lang="ts">

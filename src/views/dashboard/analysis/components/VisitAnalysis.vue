@@ -101,6 +101,7 @@
         // while (data.length>100) { data.shift()};
         var params:HoneyParams = {
           currentId:  last_id,
+          limit: 90,
         }
         var honey;
         if (last_id==0) {honey=honeyListApi() ;console.log("first")}
@@ -110,9 +111,8 @@
           for(var i of res.data){
             var k=[i.o, i.c, i.h, i.l];
             var d=Math.ceil(i.t/(24*3600));
-            var t=i.t % (24*3600);
-            var h=Math.ceil(t/3600)+7;
-            if (h>24) {h=h-24};
+            var t=i.t % (24*3600)+7*3600;
+            var h=Math.ceil(t/3600);
             var t=t % 3600;
             var m=Math.ceil(t/60);
             var s=t % 60;

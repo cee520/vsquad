@@ -1,5 +1,5 @@
 <template>
-   <Card title="路书" :loading="loading">
+   <Card title="路书" >
     <div ref="roadmapRef" :style="{ width, height }"></div>
   </Card>
 </template>
@@ -78,25 +78,24 @@
           }
         ]
       };
+      // setOptions(option);
       setInterval(function() {
         var params = {
-          currentId: last_id
+          limit: 90,
         };
         console.log("============== on setInterval Visit Roadmap =================");
         var honey;
-        if (last_id == 0) {
-          honey = honeyPetListApi();
-        } else {
-          honey = honeyPetListApi(params);
-        }
+        if (last_id != 0) {
+          params.currentId=last_id;
+        } 
+        honey = honeyPetListApi(params);
         honey.then((res) => {
           console.log(res);
           for (var i of res.data) {
             var k = [i.o, i.c, i.h, i.l, i.i];
             var d = Math.ceil(i.t / (24 * 3600)+7);
-            var t = i.t % (24 * 3600);
-            var h = Math.ceil(t / 3600)+7;
-            if (h>24) {h=h-24};
+            var t = i.t % (24 * 3600)+7*3600;
+            var h = Math.ceil(t / 3600);
             var t = t % 3600;
             var m = Math.ceil(t / 60);
             var s = t % 60;
@@ -122,7 +121,7 @@
           }
         }];
         setOptions(option);
-      }, 5e3);
+      }, 5000);
       onMounted(() => {
         setOptions(option);
       });

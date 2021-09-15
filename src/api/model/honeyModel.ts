@@ -3,9 +3,10 @@ import { BasicPageParams, BasicFetchResult } from '/@/api/model/baseModel';
 
 export type HoneyParams = {
   current_id?: number;
+  limit?: number;
   end_after?: number;
   start_before?: number;
-  total: number;
+  total?: number;
 };
 
 /**
