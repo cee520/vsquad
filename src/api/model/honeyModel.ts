@@ -1,6 +1,12 @@
 
 import { BasicPageParams, BasicFetchResult } from '/@/api/model/baseModel';
 
+export type HoneyParams = {
+  current_id?: number;
+  end_after?: number;
+  start_before?: number;
+  total: number;
+};
 
 /**
  * @description: Get honey value
@@ -25,31 +31,33 @@ export interface Honey{
   r: number;
   B: boolean;
 }
-export type HoneyParams = {
-  current_id?: number;
-  end_after?: number;
-  start_before?: number;
-  total: number;
+
+
+/**
+ * @description: Get honey percent
+ */
+ export interface HoneyPetList{
+  data:Array<HoneyPet>;
 };
 
-// export interface RegisterResultModel{
-//   id: string |number;
-//   message: string;
-// }
+export interface HoneyPet{
+  id: number;
+  t: number;
+  T: number;
+  s: String;
+  i: number;
+  o: number;
+  c: number;
+  h: number;
+  l: number;
+  a: number;
+  v: number;
+  b: number;
+  q: number;
+  r: number;
+  B: boolean;
+}
 
-// export type Params = BasicPageParams & {
-//   username?: string;
-//   mobile?: string;
-// };
-// export interface ListItem {
-//   id: string;
-//   username: string;
-//   mobile: string;
-//   email: string;
-//   full_name: string;
-//   role: number;
-//   create_at: string;
-//   locked_at: string;
-//   last_sign_at: string;
-// }
-export type ListGetResultModel = BasicFetchResult<ListItem>;
+
+export type HoneyResultList = BasicFetchResult<HoneyList>;
+export type HoneyPetResultList = BasicFetchResult<HoneyPetList>;

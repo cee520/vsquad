@@ -1,5 +1,5 @@
 <template>
-   <Card title="Roadmap" :loading="loading">
+   <Card title="路书" :loading="loading">
     <div ref="roadmapRef" :style="{ width, height }"></div>
   </Card>
 </template>
@@ -92,10 +92,11 @@
         honey.then((res) => {
           console.log(res);
           for (var i of res.data) {
-            var k = [i.o, i.c, i.h, i.l];
-            var d = Math.ceil(i.t / (24 * 3600));
+            var k = [i.o, i.c, i.h, i.l, i.i];
+            var d = Math.ceil(i.t / (24 * 3600)+7);
             var t = i.t % (24 * 3600);
-            var h = Math.ceil(t / 3600);
+            var h = Math.ceil(t / 3600)+7;
+            if (h>24) {h=h-24};
             var t = t % 3600;
             var m = Math.ceil(t / 60);
             var s = t % 60;
