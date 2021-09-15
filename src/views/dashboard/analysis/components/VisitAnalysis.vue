@@ -100,7 +100,7 @@
 
         // while (data.length>100) { data.shift()};
         var params:HoneyParams = {
-          limit: 90,
+          limit: 180,
         }
         if (last_id!=0) {params.currentId=last_id};
         var honey;
