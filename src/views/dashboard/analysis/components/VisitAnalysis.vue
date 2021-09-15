@@ -100,12 +100,11 @@
 
         // while (data.length>100) { data.shift()};
         var params:HoneyParams = {
-          currentId:  last_id,
           limit: 90,
         }
+        if (last_id!=0) {params.currentId=last_id};
         var honey;
-        if (last_id==0) {honey=honeyListApi() ;console.log("first")}
-        else {honey=honeyListApi(params);console.log("more",params)}
+        honey=honeyListApi(params);
         honey.then(res=>{
           console.log(res);
           for(var i of res.data){

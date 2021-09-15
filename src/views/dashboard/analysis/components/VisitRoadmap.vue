@@ -80,7 +80,7 @@
       };
       // setOptions(option);
       setInterval(function() {
-        var params = {
+        var params:HoneyParams = {
           limit: 90,
         };
         console.log("============== on setInterval Visit Roadmap =================");
